@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{BC786007-75E6-409D-AF81-675100CAF12C}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="vssummit/Models/BaseItem.cs">
+    <Files>
+      <File FileName="vssummit/Models/BaseItem.cs" Line="14" Column="14" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Portable.vssummit.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Portable.vssummit.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.CD32A942-F2F1-4211-BC08-7D22BF69AA54" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

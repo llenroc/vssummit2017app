@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="vssummit.Views.Salas.SalaFlatPage" Title="Salas" Icon="palestras.png">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+                    <Grid Padding="{DynamicResource StandardPadding}" 
+         				 ColumnSpacing="{StaticResource StandardSpacing}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Auditórios" Grid.Row="0" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        <StackLayout Grid.Row="1" Grid.Column="0" x:Name="audUm" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="86" HeightRequest="110" BackgroundColor="#ab1958">
+                            <Label Text="&#xf0c0;" TextColor="White" 
+												Style="{StaticResource FontIcon}"
+												FontSize="35" 
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"/>
+                            <Label Text="Auditorio 1"
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												TextColor="White"  FontSize="12" FontAttributes="Bold"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+									           Tapped="OnTapAudUm" CommandParameter="auditorio_1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="1" x:Name="audDois" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="86" HeightRequest="110"  BackgroundColor="#861350">
+
+                            <Label Text="&#xf0c0;" TextColor="White" 
+												Style="{StaticResource FontIcon}"
+												FontSize="35" 
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"/>
+                            <Label Text="Auditorio 2"
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												TextColor="White"  FontSize="12" FontAttributes="Bold"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="auditorio_2" Tapped="OnTapAudDois"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="2" x:Name="audTres" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="86" HeightRequest="110"  BackgroundColor="#473957">
+                            <Label Text="&#xf0c0;" TextColor="White" 
+												Style="{StaticResource FontIcon}"
+												FontSize="35" 
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"/>
+                            <Label Text="Auditorio 3"
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												TextColor="White"  FontSize="12" FontAttributes="Bold"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+									            CommandParameter="auditorio_3" Tapped="OnTapAudTres"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <Label Text="Salas Face to Face" Grid.Row="2" Grid.ColumnSpan="3" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                        <StackLayout Grid.Row="3" Grid.Column="0" x:Name="azure" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="86" HeightRequest="110"  BackgroundColor="#554666">
+                            <Label Text="&#xf0c2;" TextColor="White" 
+											Style="{StaticResource FontIcon}"
+											FontSize="35" 
+											HorizontalTextAlignment="Center" 
+											VerticalTextAlignment="Center" 
+											HorizontalOptions="CenterAndExpand"
+											VerticalOptions="CenterAndExpand"/>
+                            <Label Text="Azure"
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												TextColor="White"  FontSize="12" FontAttributes="Bold"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+									            CommandParameter="azure" Tapped="OnTapAzure"/>
+                            </StackLayout.GestureRecognizers>
+
+                        </StackLayout>
+                        <StackLayout Grid.Row="3" Grid.Column="1" x:Name="kinect" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  WidthRequest="86" HeightRequest="110" BackgroundColor="#5a5586">
+                            <Label Text="&#xf091;" TextColor="White" 
+											Style="{StaticResource FontIcon}"
+											FontSize="35" 
+											HorizontalTextAlignment="Center" 
+											VerticalTextAlignment="Center" 
+											HorizontalOptions="CenterAndExpand"
+											VerticalOptions="CenterAndExpand"/>
+                            <Label Text="Kinect"
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												TextColor="White" FontSize="12" FontAttributes="Bold"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+									            CommandParameter="kinect" Tapped="OnTapKinect"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Grid.Row="3" Grid.Column="2" x:Name="microsoft" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="86" HeightRequest="110"  BackgroundColor="#4d75a5">
+                            <Label Text="&#xf17a;" TextColor="White" 
+											Style="{StaticResource FontIcon}"
+											FontSize="35" 
+											HorizontalTextAlignment="Center" 
+											VerticalTextAlignment="Center" 
+											HorizontalOptions="CenterAndExpand"
+											VerticalOptions="CenterAndExpand"/>
+                            <Label Text="Microsoft"
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												TextColor="White"  FontSize="12" FontAttributes="Bold"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="microsoft" Tapped="OnTapMicrosoft"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

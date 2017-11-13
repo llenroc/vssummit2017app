@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="vssummit.Views.Palestras.PalestraDetailsPage"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+	xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" 
+	xmlns:local="clr-namespace:vssummit;assembly=vssummit"
+	xmlns:controls="clr-namespace:vssummit.Controls;assembly=vssummit"
+	BackgroundColor="{DynamicResource WindowBackgroundTable}"
+	Title="Palestra">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="toolbar_share.png" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+            <StackLayout Spacing="0">
+                <StackLayout 
+                   Padding="16,32,16,16" 
+                   Spacing="{StaticResource SmallSpacing}"
+                   HorizontalOptions="FillAndExpand" 
+                   BackgroundColor="{DynamicResource Primary}">
+                    <Label
+                        x:Name="lblTitle"
+                        FontSize="Large"
+                        Style="{DynamicResource TitleStyle}"
+                        TextColor="White"
+                        StyleId="SessionTitle"/>
+                    <Label
+                        x:Name="SessionDate"
+                        Style="{DynamicResource EvolveDetailTextStyle}"
+                        TextColor="White"
+                        StyleId="SessionDate"/>
+                </StackLayout>
+                <StackLayout 
+                    BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                    Spacing="{DynamicResource CardSpacing}"
+                    Padding="{DynamicResource CardPadding}">
+
+                    <!-- palestrante -->
+                    <controls:CardView IsVisible="true">
+                        <StackLayout Spacing="0">
+                            <controls:LabelSection Text="Palestrante"/>
+                            <controls:HeaderDivider/>
+                            <StackLayout 
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="Center" 
+                                BackgroundColor="White"
+                                Padding="{StaticResource StandardPadding}" Orientation="Horizontal">
+                                	<ffimageloading:CachedImage  x:Name="imgPalestrante" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+											LoadingPlaceholder="profile_generic" ErrorPlaceholder="profile_generic" DownsampleToViewSize="true"
+											Aspect="AspectFit" HeightRequest="60" WidthRequest="60" >
+											<ffimageloading:CachedImage.Transformations>
+												<fftransformations:RoundedTransformation Radius="30"/>
+											</ffimageloading:CachedImage.Transformations>
+										</ffimageloading:CachedImage>
+                               <!-- <imagecircle:CircleImage  
+					                    FillColor="Gray" 
+					                    VerticalOptions="CenterAndExpand"
+					                    HorizontalOptions="Start"
+					                    HeightRequest="30"
+										WidthRequest="30"
+										x:Name="imgPalestrante">
+                                </imagecircle:CircleImage>-->
+                                <Label x:Name="lblpalesnome" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Style="{DynamicResource EvolveListItemTextStyle}"/>
+
+                            </StackLayout>
+
+                            <controls:FooterDivider/>
+                        </StackLayout>
+                    </controls:CardView>
+
+                    <!--resumo-->
+                    <controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:LabelSection Text="Resumo da palestra"/>
+                            <controls:HeaderDivider/>
+                            <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                                <Label x:Name="lblResumo" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+                        </StackLayout>
+                    </controls:CardView>
+
+                    <!-- onde acontecerá-->
+                    <controls:CardView x:Name="Locais" >
+                        <StackLayout Spacing="0" x:Name="StackLocais">
+                            <controls:LabelSection Text="Onde acontecerá"/>
+                            <controls:HeaderDivider/>
+                            <ListView 
+                                x:Name="ListViewPalestras"
+                                RowHeight="120"
+                                BackgroundColor="White">
+                                <ListView.SeparatorColor>
+                                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                                </ListView.SeparatorColor>
+                                <ListView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <ViewCell.Height>
+                                                <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
+                                            </ViewCell.Height>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.GroupHeaderTemplate>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="{DynamicResource StandardPadding}" ColumnSpacing="{StaticResource StandardSpacing}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <controls:FavoriteImage
+                                                    IsVisible="{Binding PodeSerAgendada}"
+									                Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    Grid.RowSpan="2"
+                                                    Source="{Binding NomeImagem}">
+
+                                                    <controls:FavoriteImage.GestureRecognizers>
+                                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandAdicionarOuRemoverDaAgenda}" />
+                                                    </controls:FavoriteImage.GestureRecognizers>
+
+                                                </controls:FavoriteImage >
+
+                                                <Grid Grid.Row="0" Grid.RowSpan="3" VerticalOptions="FillAndExpand">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandDetalhePalestra}"/>
+                                                    </Grid.GestureRecognizers>
+
+                                                    <Label Grid.Row="0"
+			                                           Text="{Binding Titulo}" 
+			                                           Style="{DynamicResource EvolveListItemTextStyle}" />
+
+                                                    <Label Grid.Row="1"
+			                                           Text="{Binding SalaNome}" 
+			                                           Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+
+                                                    <Label Grid.Row="2"
+										                Text="{Binding Horario}"
+										                Style="{DynamicResource EvolveListItemDetailTextStyle}"/>
+                                                </Grid>
+                                            </Grid>
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <controls:FooterDivider/>
+                        </StackLayout>
+                    </controls:CardView>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Icon="more.png" Title="Mais" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:vssummit.Controls;assembly=vssummit" x:Class="vssummit.MaisPage">
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical">
+			    <controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:HeaderDivider/>
+                            <StackLayout Padding="{StaticResource StandardPadding}" Orientation="Horizontal" Spacing="10" BackgroundColor="White">
+								<Image Source="feeds" VerticalOptions="Center" />
+                                <Label Text="Feeds" Style="{DynamicResource EvolveListItemTextStyle}" VerticalOptions="Center" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+							<StackLayout.GestureRecognizers>
+							        <TapGestureRecognizer
+							                Tapped="OnTappedFeeds"
+							                NumberOfTapsRequired="1" />
+							 </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                 </controls:CardView>
+				 <controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:HeaderDivider/>
+                            <StackLayout Padding="{StaticResource StandardPadding}" Orientation="Horizontal" Spacing="10" BackgroundColor="White">
+								<Image Source="comochegar" VerticalOptions="Center"/>
+                                <Label Text="Como Chegar" VerticalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+							<StackLayout.GestureRecognizers>
+							        <TapGestureRecognizer
+							                Tapped="OnTappedComoChegar"
+							                NumberOfTapsRequired="1" />
+							 </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                 </controls:CardView>
+			<controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:HeaderDivider/>
+                            <StackLayout Padding="{StaticResource StandardPadding}" Orientation="Horizontal" Spacing="10" BackgroundColor="White">
+								<Image Source="patrocinadores" VerticalOptions="Center"/>
+                                <Label Text="Patrocinadores e Parceiros" VerticalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+							<StackLayout.GestureRecognizers>
+							        <TapGestureRecognizer
+							                Tapped="OnTappedPatrocinadores"
+							                NumberOfTapsRequired="1" />
+							 </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                 </controls:CardView>
+			<controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:HeaderDivider/>
+                            <StackLayout Padding="{StaticResource StandardPadding}" Orientation="Horizontal" Spacing="10" BackgroundColor="White">
+								<Image Source="tab_about" VerticalOptions="Center"/>
+                                <Label Text="Sobre" VerticalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+							<StackLayout.GestureRecognizers>
+							        <TapGestureRecognizer
+							                Tapped="OnTappedSobre"
+							                NumberOfTapsRequired="1" />
+							 </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                 </controls:CardView>
+
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

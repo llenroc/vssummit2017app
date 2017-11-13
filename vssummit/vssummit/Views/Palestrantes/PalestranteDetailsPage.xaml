@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="vssummit.Views.Palestrantes.PalestranteDetailsPage"
+	xmlns:local="clr-namespace:vssummit.Controls;assembly=vssummit"
+	x:Name="SpeakerInfo"
+	NavigationPage.BackButtonTitle="Voltar"
+    BackgroundColor="{DynamicResource WindowBackgroundTable}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" x:Name="Row1Header"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid RowSpacing="0" ColumnSpacing="0" x:Name="HeaderView" BackgroundColor="{DynamicResource Primary}">
+            <Image
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                x:Name="imgPalest"
+                Aspect="AspectFill"/>
+        </Grid>
+        <local:ParallaxScrollView x:Name="MainScroll" Grid.RowSpan="2">
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" x:Name="Row1Content"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="MainStack"
+                     VerticalOptions="End"
+                     HorizontalOptions="FillAndExpand">
+                    <Image Source="profile_pic_shadow.png" 
+                           Aspect="AspectFill"
+                           HorizontalOptions="FillAndExpand" 
+                           VerticalOptions="FillAndExpand"/>
+                    <StackLayout
+                         Padding="{StaticResource StandardPadding}"
+                         Spacing="0"
+                         VerticalOptions="End"
+                         HorizontalOptions="FillAndExpand">
+                        <Label
+                            x:Name="lblNome"
+                            FontSize="18"
+                            TextColor="White">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String" Android="sans-serif-light" iOS="HelveticaNeue-Light"/>
+                            </Label.FontFamily>
+                        </Label>
+                        <Label
+                            x:Name="lblTitulo"
+                     
+                            FontSize="12"
+                            TextColor="White"/>
+                    </StackLayout>
+                </Grid>
+                <StackLayout Grid.Row="1" Spacing="0">
+                    <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                                 Spacing="{DynamicResource CardSpacing}"
+                                 Padding="{DynamicResource CardPadding}">
+                        
+                        <!--Curriculo-->
+                        <local:CardView>
+                            <StackLayout Spacing="0">
+                                <local:LabelSection Text="Curriculo"/>
+                                <local:HeaderDivider/>
+                                <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                                    <Label x:Name="lblDetalhes" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                                </StackLayout>
+                                <local:FooterDivider/>
+                            </StackLayout>
+                        </local:CardView>
+
+                        <!--Palestras-->
+                        <local:CardView x:Name="Locais" >
+                            <StackLayout Spacing="0" x:Name="StackLocais">
+                                <local:LabelSection Text="Palestras"/>
+                                <local:HeaderDivider/>
+                                <ListView 
+                                x:Name="ListViewPalestras"
+                                RowHeight="100"
+                                BackgroundColor="White">
+                                    <ListView.SeparatorColor>
+                                        <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                                    </ListView.SeparatorColor>
+                                    <ListView.GroupHeaderTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.Height>
+                                                    <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
+                                                </ViewCell.Height>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.GroupHeaderTemplate>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Grid Padding="{DynamicResource StandardPadding}" ColumnSpacing="{StaticResource StandardSpacing}">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <local:FavoriteImage
+                                                    IsVisible="{Binding PodeSerAgendada}"
+									                Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    Grid.RowSpan="2"
+                                                    Source="{Binding NomeImagem}">
+
+                                                        <local:FavoriteImage.GestureRecognizers>
+                                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandAdicionarOuRemoverDaAgenda}" />
+                                                        </local:FavoriteImage.GestureRecognizers>
+
+                                                    </local:FavoriteImage >
+
+                                                    <Grid Grid.Row="0" Grid.RowSpan="3" VerticalOptions="FillAndExpand">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandDetalhePalestra}"/>
+                                                        </Grid.GestureRecognizers>
+
+                                                        <Label Grid.Row="0"
+			                                           Text="{Binding Titulo}" 
+			                                           Style="{DynamicResource EvolveListItemTextStyle}" />
+
+                                                        <Label Grid.Row="1"
+			                                           Text="{Binding SalaNome}" 
+			                                           Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+
+                                                        <Label Grid.Row="2"
+										                Text="{Binding Horario}"
+										                Style="{DynamicResource EvolveListItemDetailTextStyle}"/>
+                                                    </Grid>
+                                                </Grid>
+
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <local:FooterDivider/>
+                            </StackLayout>
+                        </local:CardView>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </local:ParallaxScrollView>
+    </Grid>
+</ContentPage>
+
+
+
+
+
+
+

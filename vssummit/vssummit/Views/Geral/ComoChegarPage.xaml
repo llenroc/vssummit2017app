@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="vssummit.Views.Geral.ComoChegarPage" Title="Como Chegar" Icon="comochegar.png"
+	NavigationPage.BackButtonTitle="Voltar" xmlns:controls="clr-namespace:vssummit.Controls;assembly=vssummit"
+	BackgroundColor="{DynamicResource WindowBackgroundTable}">
+	<ContentPage.Content>
+		<ScrollView Orientation="Vertical">
+		<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="5" Padding="5,0,5,10">
+				
+			     <controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:LabelSection Text="MICROSOFT BRASIL"/>
+                            <controls:HeaderDivider/>
+							<Image Source="microsoft.jpg" WidthRequest="514" VerticalOptions="Start" HeightRequest="235" />
+                            <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                                <Label Text="Av. Nações Unidas, 12.901" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Torre Norte - 31 andar" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+								<Label Text="São Paulo / SP" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+                        </StackLayout>
+                    </controls:CardView>
+				 <controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:LabelSection Text="COMO CHEGAR" />
+                            <controls:HeaderDivider/>
+                            <StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Metrô" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Estação Berrini e ao Shopping D&amp;D" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+							 <StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Carro" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Você pode estacionar nos estacionamentos próximos e/ou no Shopping D&amp;D (Av. das Nações Unidas, 12555)" LineBreakMode="WordWrap" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+						 	<StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Aeroporto de Congonhas" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Distância aproximada de 8 KM" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+							 <StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Aeroporto de Guarulhos" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Distância aproximada de 40 KM" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+                        </StackLayout>
+                    </controls:CardView>
+				 <controls:CardView >
+                        <StackLayout Spacing="0">
+                            <controls:LabelSection Text="HOSPEDAGEM" />
+                            <controls:HeaderDivider/>
+                            <StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Hotel The Time Othon Flat" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Rua Hans Oersted, 115 - Brooklin" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+								<Label Text="São Paulo - SP, 04575-010" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+							 <StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Quality Berrini" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="R. Heinrich Hertz, 14 - Cidade Monções" LineBreakMode="WordWrap" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+								<Label Text="São Paulo - SP, 04575-000" LineBreakMode="WordWrap" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>	
+                            </StackLayout>
+						 	<StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="IBIS/Budget" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Av. Roque Petroni Júnior, 800 - Vila Gertrudes" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+								<Label Text="São Paulo - SP, 04707-000" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+							 <StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Sheraton São Paulo WTC Hotel" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Avenida das Nações Unidas, 12559 - Brooklin Novo" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+								<Label Text="São Paulo - SP, 04578-903" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+							 <StackLayout Padding="{StaticResource MediumPadding}" BackgroundColor="White" Spacing="0">
+                                <Label Text="Hilton São Paulo Morumbi" TextColor="#473957" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+							 	<Label Text="Av. das Nações Unidas, 12901 - Brooklin Paulista" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+								<Label Text="São Paulo - SP, 04578-000" TextColor="Gray" FontAttributes="Bold" Style="{DynamicResource EvolveListItemTextStyle}" StyleId="SessionAbstract"/>
+                            </StackLayout>
+                            <controls:FooterDivider/>
+                        </StackLayout>
+                    </controls:CardView>
+		</StackLayout>
+			</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

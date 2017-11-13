@@ -1,0 +1,4 @@
+<resources><!--
+        Base application theme for API 21+. This theme completely replaces
+        MyTheme from BOTH res/values/styles.xml on API 21+ devices.
+    --></resources>

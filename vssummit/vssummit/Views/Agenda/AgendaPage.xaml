@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:vssummit.Controls;assembly=vssummit"
+	x:Class="vssummit.Views.Agenda.AgendaPage"
+	Title="Favoritos" Icon="favoritos.png">
+    <ContentPage.Content>
+        <ListView 
+                CachingStrategy="RetainElement"
+                x:Name="ListViewPalestras"
+                HasUnevenRows ="true"
+                BackgroundColor="White">
+            <ListView.SeparatorColor>
+                <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+            </ListView.SeparatorColor>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.Height>
+                            <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
+                        </ViewCell.Height>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="{DynamicResource StandardPadding}" ColumnSpacing="{StaticResource StandardSpacing}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <controls:FavoriteImage
+                                    IsVisible="{Binding PodeSerAgendada}"
+									Grid.Row="0"
+                                    Grid.Column="1"
+                                    Grid.RowSpan="2"
+                                    Source="{Binding NomeImagem}">
+
+                                <controls:FavoriteImage.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandAdicionarOuRemoverDaAgenda}" />
+                                </controls:FavoriteImage.GestureRecognizers>
+
+                            </controls:FavoriteImage >
+
+                            <Grid Grid.Row="0" Grid.RowSpan="3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandDetalhePalestra}"/>
+                                </Grid.GestureRecognizers>
+
+                                <Label Grid.Row="0"
+			                           Text="{Binding HorarioComAuditorio}" 
+			                           Style="{DynamicResource EvolveListItemTextStyle}" />
+
+                                <Label Grid.Row="1"
+			                           Text="{Binding Titulo}" 
+			                           Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+
+                                <Label Grid.Row="2"
+										IsVisible="{Binding TemPalestrante}"
+										Text="{Binding Palestrante.Nome}"
+										Style="{DynamicResource EvolveListItemDetailTextStyle}"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:vssummit.Controls;assembly=vssummit"
+	x:Class="vssummit.Views.Palestras.PalestrasListPage"
+	Title="Palestras" 
+    Icon="tab_sessions.png" 
+    BackgroundColor="{DynamicResource WindowBackground}" >
+
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Pesquisar" FontSize="Small" x:Name="SearchBar" TextChanged="SearchBar_OnTextChanged" >
+                <SearchBar.PlaceholderColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White"/>
+                </SearchBar.PlaceholderColor>
+                <SearchBar.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Primary}"/>
+                </SearchBar.BackgroundColor>
+                <SearchBar.TextColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White"/>
+                </SearchBar.TextColor>
+                <SearchBar.CancelButtonColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White" iOS="{StaticResource Primary}"/>
+                </SearchBar.CancelButtonColor>
+            </SearchBar>
+            <ListView
+                CachingStrategy="RetainElement"
+                x:Name="ListViewPalestras"
+                HasUnevenRows ="true"
+                BackgroundColor="White">
+                <ListView.SeparatorColor>
+                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                </ListView.SeparatorColor>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.Height>
+                                <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
+                            </ViewCell.Height>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid 
+                                Padding="{DynamicResource StandardPadding}" 
+                                ColumnSpacing="{StaticResource StandardSpacing}"
+                                IsVisible="{Binding EItemMesmo}"
+                                IsEnabled="{Binding EItemMesmo}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <controls:FavoriteImage
+                                    IsVisible="{Binding PodeSerAgendada}"
+									Grid.Row="0"
+                                    Grid.Column="1"
+                                    Grid.RowSpan="2"
+                                    Source="{Binding NomeImagem}">
+
+                                        <controls:FavoriteImage.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandAdicionarOuRemoverDaAgenda}" />
+                                        </controls:FavoriteImage.GestureRecognizers>
+
+                                    </controls:FavoriteImage >
+                                    <Grid Grid.Row="0" Grid.RowSpan="3" VerticalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding CommandDetalhePalestra}"/>
+                                        </Grid.GestureRecognizers>
+
+                                        <Label Grid.Row="0"
+			                           Text="{Binding Titulo}" 
+			                           Style="{DynamicResource EvolveListItemTextStyle}" />
+
+                                        <Label Grid.Row="1"
+			                           Text="{Binding Palestrante.Nome}" 
+			                           Style="{DynamicResource EvolveListItemDetailTextStyle}" />
+
+                                        <Label Grid.Row="2"
+										Text="{Binding SalaNome}"
+										Style="{DynamicResource EvolveListItemDetailTextStyle}"/>
+                                    </Grid>
+                                </Grid>
+                                <StackLayout 
+                                IsEnabled="{Binding ApenasPlaceHolderDeHorario}"
+                                IsVisible="{Binding ApenasPlaceHolderDeHorario}">
+                                    <Label 
+                                    Text="{Binding Titulo}"
+                                    Style="{DynamicResource TituloHorario}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout x:Name="NenhumResultadoEncontrado" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="false">
+                <Label Text="Nenhum resultado encontrado"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

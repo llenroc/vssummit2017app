@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+             x:Class="vssummit.Error">
+    <ContentPage.Content>
+        <StackLayout 
+            BackgroundColor="White"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand" 
+            Padding="10, 50, 10, 50">
+			<Label Text="Falha ao conectar!" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Text="Pedimos que verifique a conexão e tente novamente." HorizontalTextAlignment="Center" FontSize="20"/>
+			 <Label Text="&#xf1eb;" TextColor="#473957" 
+												Style="{StaticResource FontIcon}"
+												FontSize="160" 
+												HorizontalTextAlignment="Center" 
+												VerticalTextAlignment="Center" 
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"/>
+            <!--<Image Source="wifierror.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>-->
+            <!--<Button Text="Tentar novamente" Clicked="Button_OnClicked" /> f1eb-->
+			<artina:Button
+					Style="{DynamicResource PrimaryActionButtonStyle}"
+					VerticalOptions="End"
+					Text="Tentar novamente"
+					Clicked="Button_OnClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

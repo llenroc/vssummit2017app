@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+	x:Class="vssummit.Views.Geral.SobreTabbedPage" Title="Sobre" Icon="info.png"
+	NavigationPage.BackButtonTitle="Voltar">
+	<ContentPage.Content>
+		<StackLayout >
+			<ScrollView Orientation="Vertical">
+				<StackLayout Orientation="Vertical" Spacing="10" Padding="10,30,10,100" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+					<Label FontSize="16" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" 
+					Text="O Visual Studio Summit 2017 é o maior evento sobre Visual Studio realizado no Brasil que está chegando a 6ª edição voltado para desenvolvedores de software que tem o objetivo de promover networking, apresentar tendências e principais estratégias atuais ligadas ao desenvolvimento de software na plataforma Microsoft usando Visual Studio, Azure e mobilidade."/>
+
+					<Label FontSize="16" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" 
+						Text="Durante esse evento o participante tem acesso a um ciclo de palestras exclusivas sempre abordando as principais novidades no mercado de desenvolvimento de software. Aproveite essa grande oportunidade e conecte-se com desenvolvedores de software na plataforma Visual Studio de todo o Brasil."/>
+
+					<StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+						<Label Text="Versão:" FontSize="18" FontAttributes="Bold"/><Label x:Name="lblversion" FontSize="18" FontAttributes="Bold"/>
+					</StackLayout>
+                    
+                    <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Autenticação:" />
+                        <Label x:Name="lblLogin" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Palestras:" />
+                        <Label x:Name="lblPalestras" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Palestrantes:" />
+                        <Label x:Name="lblPalestrantes" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Salas:" />
+                        <Label x:Name="lblSalas" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Tempo total:" />
+                        <Label x:Name="lblTempoTotal" />
+                    </StackLayout>
+					
+                    <artina:Button
+						Style="{DynamicResource PrimaryActionButtonStyle}"
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="EndAndExpand" 
+						Text="Apagar cache local"
+						Clicked="Button_Clicked"/>
+                    <!--<Button  Text="Apagar cache local" HorizontalOptions="FillAndExpand" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" BackgroundColor="#473957" TextColor="White" FontAttributes="Bold" />-->
+
+                </StackLayout>
+			</ScrollView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

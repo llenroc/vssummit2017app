@@ -1,0 +1,10 @@
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/bin/Debug/vssummit.UITests.dll
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/bin/Debug/vssummit.UITests.pdb
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/bin/Debug/nunit.framework.dll
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/bin/Debug/Xamarin.UITest.dll
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/bin/Debug/nunit.framework.xml
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/bin/Debug/Xamarin.UITest.xml
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/obj/Debug/vssummit.UITests.csprojResolveAssemblyReference.cache
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/obj/Debug/vssummit.UITests.csproj.CoreCompileInputs.cache
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/obj/Debug/vssummit.UITests.dll
+/Users/rogerio/2PC/DevBrasil/App/Mobile/vssummit/UITests/obj/Debug/vssummit.UITests.pdb

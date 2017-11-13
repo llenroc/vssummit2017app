@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="vssummit.Views.Palestrantes.PalestranteListPage"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+	xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" 
+	NavigationPage.BackButtonTitle="Voltar"
+	Title="Palestrantes" Icon="palestrantes.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Pesquisar" FontSize="Small" x:Name="SearchBar" TextChanged="SearchBar_OnTextChanged">
+                <SearchBar.PlaceholderColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White"/>
+                </SearchBar.PlaceholderColor>
+                <SearchBar.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color" Android="{StaticResource Primary}"/>
+                </SearchBar.BackgroundColor>
+                <SearchBar.TextColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White"/>
+                </SearchBar.TextColor>
+                <SearchBar.CancelButtonColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White" iOS="{StaticResource Primary}"/>
+                </SearchBar.CancelButtonColor>
+            </SearchBar>
+            <ListView 
+                x:Name="ListViewPalestrantes"
+                HasUnevenRows ="true"
+                CachingStrategy="RetainElement"
+                BackgroundColor="White">
+                <ListView.SeparatorColor>
+                    <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" WinPhone="{StaticResource ListSeparator}"/>
+                </ListView.SeparatorColor>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.Height>
+                                <OnPlatform x:TypeArguments="x:Double" iOS="28"/>
+                            </ViewCell.Height>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="15" VerticalOptions="CenterAndExpand" Spacing="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+      
+										<ffimageloading:CachedImage HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+											LoadingPlaceholder="profile_generic" ErrorPlaceholder="profile_generic" DownsampleToViewSize="true"
+											Aspect="AspectFit" HeightRequest="60" WidthRequest="60" CacheDuration="90" Source="{Binding Gravatar}">
+											<ffimageloading:CachedImage.Transformations>
+												<fftransformations:RoundedTransformation Radius="30"/>
+											</ffimageloading:CachedImage.Transformations>
+										</ffimageloading:CachedImage>
+										<!--<imagecircle:CircleImage  
+						                    FillColor="Gray" 
+						                    VerticalOptions="CenterAndExpand"
+						                    HorizontalOptions="StartAndExpand"
+						                    HeightRequest="60"
+											WidthRequest="60"
+											Source="{Binding Gravatar}">
+                                        </imagecircle:CircleImage>-->
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                                        
+                                        <StackLayout VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+                                           
+                                            	<Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="12" VerticalTextAlignment="Center"/>
+												<Label Text=", " VerticalTextAlignment="Center"/>
+												<Label FontSize="12" Text="{Binding Profissao}" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Purple"/>
+                                           
+                                        </StackLayout>
+										<StackLayout VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+											<Label VerticalOptions="Center" FontSize="12" Text="{Binding DescricaoAbreviada}" FontAttributes="Italic"/>
+										 </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+			<StackLayout x:Name="NenhumResultadoEncontrado" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="false">
+                <Label Text="Nenhum resultado encontrado"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
